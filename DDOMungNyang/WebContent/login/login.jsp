@@ -34,7 +34,7 @@
                <div >      
        <p>&nbsp;</p>
       
-      <csrf:form class="form-horizontal" action="/bbs/login.do" method="post">
+      <form class="form-horizontal" action="/bbs/login.do" method="post">
        <div class="form-group">
           <div class="col-sm-6 text-left">
              <input type="text" class="form-control" placeholder="아이디" name="id" id="id" value="${member.id }">
@@ -55,7 +55,7 @@
           <input type="submit" value="로그인" class="btn btn-success">
           </div>
        </div>
-      </csrf:form> 
+      </form> 
      </div>
    </div>
                <!-- Banner -->
