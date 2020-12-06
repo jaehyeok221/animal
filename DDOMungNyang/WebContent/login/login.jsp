@@ -27,7 +27,7 @@
             
       
          <!-- Header -->
-            <section id="header">
+           
             
                <!-- Logo -->
                   <h1><a href="/bbs/index.jsp">DDO:MUNGNYANG</a></h1>
@@ -58,11 +58,6 @@
       </form> 
      </div>
    </div>
-               <!-- Banner -->
-                  <section id="banner">
-                     <header>
-
-                     </header>
-                  </section>
+              
    </body>
 </html>

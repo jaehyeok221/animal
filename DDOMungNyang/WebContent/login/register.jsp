@@ -32,7 +32,7 @@
 		<h1>
 			<a href="/bbs/index.jsp">DDO:MUNGNYANG</a>
 		</h1>
-		<form class="form-horizontal" action="/bbs/login.do" method="post">
+		<form class="form-horizontal" action="/bbs/SignUp.do" method="post">
 			<div id="container">
 				<div class="join_content">
 					<div class="row_group">
@@ -40,54 +40,55 @@
 							<h3 class="col-sm-2 control-label">
 								<label for="id">아이디</label>
 							</h3>
-							<div class="inputWrap">     <!-- div시작 -->
-									<div class="col-sm-3">
-								<input type="text" id="sample6_postcode" placeholder="이메일로입력해주세요"
-									name="zip_num" class="form-control" value="${member.zip_num }">
-							</div>
-							<div class="adress_button">
-								<input type="button" id="adress_button"
-									onclick="" value="인증번호 발송"
-									class="btn">
-							</div>
-									
-									<!-- div 끝 -->
+							<div class="inputWrap">
+								<!-- div시작 -->
+								<div class="col-sm-3">
+									<input type="email" id="sample6_postcode"
+										placeholder="이메일로입력해주세요" name="id" class="form-control"
+										value="${member.email }">
+								</div>
+								<div class="adress_button">
+									<input type="button" id="adress_button" onclick=""
+										value="인증번호 발송" class="btn">
+								</div>
+
+								<!-- div 끝 -->
 								<p style="color: red;">${idError}</p>
 							</div>
 							<h3 class="col-sm-2 control-label">
 								<label for="id">인증번호</label>
 							</h3>
-							<div class="inputWrap">     <!-- div시작 -->
-									<div class="col-sm-3">
-								<input type="text" id="sample6_postcode" placeholder="인증번호 입력"
-									name="zip_num" class="form-control" value="${member.zip_num }">
-							</div>
-							<div class="adress_button">
-								<input type="button" id="adress_button"
-									onclick="" value="확인"
-									class="btn">
-							</div>
-									
-									<!-- div 끝 -->
+							<div class="inputWrap">
+								<!-- div시작 -->
+								<div class="col-sm-3">
+									<input type="text" id="sample6_postcode" placeholder="인증번호 입력"
+										name="zip_num" class="form-control" value="${member.zip_num }">
+								</div>
+								<div class="adress_button">
+									<input type="button" id="adress_button" onclick="" value="확인"
+										class="btn">
+								</div>
+
+								<!-- div 끝 -->
 								<p style="color: red;">${idError}</p>
 							</div>
 
 						</div>
-						
+
 						<div class="join_row">
 							<h3 class="col-sm-2 control-label">
 								<label for="pwd" id="pwd">비밀번호</label>
 							</h3>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" name="pwd" id="pwd">
+								<input type="password" class="form-control" name="pw" id="pw">
 								<p style="color: red;">${pwdError}</p>
 							</div>
 							<h3 class="col-sm-2 control-label">
 								<label for="pwdCheck" id="pwdCheck">비밀번호 확인</label>
 							</h3>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" name="pwdCheck"
-									id="pwdCheck">
+								<input type="password" class="form-control" name="repw"
+									id="repw">
 								<p style="color: red;">${pwdCheckError}</p>
 							</div>
 						</div>
@@ -109,14 +110,14 @@
 							</h3>
 							<div class="bir_wrap">
 								<div class="bir_yy">
-									<span class="ps_box"> <input type="text" id="yy"
+									<span class="ps_box"> <input type="text" id="yy" name="yy"
 										placeholder="년(4자)" aria-label="년(4자)" class="int"
 										maxlength="4">
 									</span>
 								</div>
 								<div class="bir_wrap">
 									<div class="bir_mm">
-										<span class="ps_box"> <select id="mm" class="sel"
+										<span class="ps_box"> <select id="mm" class="sel"  name="mm"
 											aria-label="월">
 												<option value="">월</option>
 												<option value="01">1</option>
@@ -135,7 +136,7 @@
 										</span>
 									</div>
 									<div class=" bir_dd">
-										<span class="ps_box"> <input type="text" id="dd"
+										<span class="ps_box"> <input type="text" id="dd"  name="dd"
 											placeholder="일" aria-label="일" class="int" maxlength="2">
 											<label for="dd" class="lbl"></label>
 										</span>
@@ -147,11 +148,11 @@
 						</div>
 						<div class="join_row">
 							<h3 class="col-sm-2 control-label">
-								<label for="email" id="email">이메일</label>
+								<label for="email" id="email" >닉네임</label>
 							</h3>
 							<div class="col-sm-6">
-								<input type="email" class="form-control" name="email" id="email"
-									value="${member.email }">
+								<input type="text" class="form-control" name="nick" id="ncik"
+									value="">
 								<p style="color: red;">${emailError}</p>
 							</div>
 						</div>
@@ -171,8 +172,8 @@
 								<label for="zip_num" id="zip_num">우편번호</label>
 							</h3>
 							<div class="col-sm-3">
-								<input type="text" id="sample6_postcode" placeholder="우편번호"
-									name="zip_num" class="form-control" value="${member.zip_num }">
+								<input type="text" id="zipcode" placeholder="우편번호"
+									name="zipcode" class="form-control" value="${member.zip_num }">
 							</div>
 							<div class="adress_button">
 								<input type="button" id="adress_button"
@@ -188,9 +189,8 @@
 								<label for="address1" id="address1">주소</label>
 							</h3>
 							<div class="col-sm-6">
-								<input type="text" id="sample6_address" placeholder="주소"
-									name="address1" class="form-control"
-									value="${member.address1 }">
+								<input type="text" id="addr" placeholder="주소" name="addr"
+									class="form-control" value="${member.address1 }">
 
 							</div>
 						</div>
@@ -204,9 +204,8 @@
 								<label for="address1" id="address1">상세주소</label>
 							</h3>
 							<div class="col-sm-6">
-								<input type="text" id="sample6_address2" placeholder="상세주소"
-									name="address2" class="form-control"
-									value="${member.address2 }">
+								<input type="text" id="addr1" placeholder="상세주소" name="addr1"
+									class="form-control" value="${member.address2 }">
 							</div>
 						</div>
 						<div class="join_row">
@@ -224,14 +223,13 @@
 							</div>
 						</div>
 					</div>
+					
 
 				</div>
 
 			</div>
+			</form>
 	</div>
-	</form>
-	</div>
-	<!-- Banner -->
-	<section id="banner"> </section>
+	
 </body>
 </html>

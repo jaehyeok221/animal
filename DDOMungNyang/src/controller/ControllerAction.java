@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name="ControllerAction", urlPatterns={"*.do"})
 public class ControllerAction extends HttpServlet{
+	
 	Map map = new HashMap();
 
     public void init(ServletConfig config) throws ServletException { 
@@ -79,12 +80,12 @@ public class ControllerAction extends HttpServlet{
     private void requestPro(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
     	//요청
-//		System.out.println("test : " + request.getRequestURI());
+		System.out.println("test : " + request.getRequestURI());
 		String category = request.getServletPath().substring(1);
-//		System.out.println("category = " + category);
+		System.out.println("category = " + category);
 
 		CommandAction command = (CommandAction) map.get(category);
-//		System.out.println("command = " + command);
+		System.out.println("command = " + command);
 		
 		String view=null;
 		try {
@@ -92,7 +93,7 @@ public class ControllerAction extends HttpServlet{
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-//		System.out.println("view = " + view);
+		System.out.println("view = " + view);
 		
 		//응답
 		RequestDispatcher dispatcher = request.getRequestDispatcher(view);//상대번지

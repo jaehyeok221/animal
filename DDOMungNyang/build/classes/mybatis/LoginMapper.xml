@@ -9,4 +9,10 @@
 			FROM USERS WHERE ID=#{id} AND PWD=#{pwd}
 		]]>
 	</select>
+	<select id="signUp" parameterType="LoginDTO" >
+		<![CDATA[
+		insert into test1(id,pw,repw,name,nick,birth,phone,zipcode,addr) 
+		values (#{id},#{pw},#{repw},#{name},#{nick},#{birth},#{phone},#{zipcode},#{addr})
+	]]>
+	</select>
 </mapper>

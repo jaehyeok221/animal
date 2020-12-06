@@ -23,10 +23,29 @@ public class LoginDAO {
 	//----------------------------------------------------------------------
 	public LoginDTO getLoginUser(String id, String pwd) {
 		SqlSession session=factory.openSession();
-		LoginDTO dto=new LoginDTO(id,pwd,"",0);
+		LoginDTO dto=new LoginDTO(id,pwd,"","","","",0,0,"");
 		LoginDTO entity=session.selectOne("mybatis.LoginMapper.getLoginUser", dto);
 		session.close();
 		return entity;		
+	}
+	public int signUp(LoginDTO dto) {
+		SqlSession session = factory.openSession();
+		int n =0;
+		try {
+			System.out.println("signUp 들어옴");
+			n = session.insert("mybatis.LoginMapper.signUp",dto);
+			System.out.println(n+"DAO");
+			if (n > 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("ㅋㅋ 에러ㄸㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ");
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return n;
 	}
 }
 
