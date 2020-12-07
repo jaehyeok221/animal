@@ -11,8 +11,8 @@
 	</select>
 	<select id="signUp" parameterType="LoginDTO" >
 		<![CDATA[
-		insert into test1(id,pw,repw,name,nick,birth,phone,zipcode,addr) 
-		values (#{id},#{pw},#{repw},#{name},#{nick},#{birth},#{phone},#{zipcode},#{addr})
+		INSERT INTO TEST1(ID,PW,REPW,NAME,NICK,BIRTH,PHONE,ZIPCODE,ADDR) 
+		VALUES (#{id},#{pw},#{repw},#{name},#{nick},#{birth},#{phone},#{zipcode},#{addr})
 	]]>
 	</select>
 </mapper>
